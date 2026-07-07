@@ -6,7 +6,22 @@ import { cocktailLists, mockTailLists } from "../../constants";
 const Cocktails = () => {
 
     useGSAP(() => {
-        
+        const cocktailTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#cocktails",
+                start: "top 30%",
+                end: "bottom 80%",
+                scrub: true,
+            }
+        })
+        //Timeline animations for the left and right leaves in the cocktails section
+        .from("#c-left-leaf", { 
+            x: -100, y: 100
+        })
+
+        .from("#c-right-leaf", {
+            x: 100, y: 100
+        })
     })
   return (
     <section id="cocktails" className="noisy">
