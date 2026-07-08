@@ -6,8 +6,6 @@ import { useMediaQuery} from "react-responsive"
 
 const Hero = () => {
     const videoRef = useRef();
-    const video = videoRef.current;
-
 
     const isMobile = useMediaQuery({ maxWidth: 768 });
   useGSAP(() => {
@@ -47,14 +45,6 @@ const Hero = () => {
 
       const startValue = isMobile ? "top 50%" : "center 60%";
       const endValue = isMobile ? "200% top" : "bottom top";
-
-      // Prime the video for mobile browsers
-      video.play().then(() => {
-        video.pause();
-        video.currentTime = 0;
-      }).catch(() => {
-        // Ignore autoplay restrictions
-      });
 
       const tl = gsap.timeline({
         scrollTrigger: {
